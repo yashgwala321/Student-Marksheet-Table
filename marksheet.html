@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      document.write("<table border='2px' rules='all' style='width:900px; margin-left: 400px; margin-top:100px; height:400px'>");
+      document.write("<tr>");
+      document.write("<th colspan='10'>Student Details</th>");
+      document.write("</tr>");
+
+      document.write("<tr>");
+      document.write("<th>Sr.no</th>");
+      document.write("<th>Roll no </th>");
+      document.write("<th>Student Name</th>");
+      document.write("<th>Math Marks</th>");
+      document.write("<th>Hindi Marks</th>");
+      document.write("<th>English Marks</th>");
+      document.write("<th>Total Marks</th>");
+      document.write("<th>Percentage</th>");
+      document.write("<th>Grade</th>");
+      document.write("<th>Result</th>");
+      document.write("</tr>");
+
+
+       let highper = 0;
+       let minper = 100;
+       let pass = 0;
+       let fail = 0;
+       
+      for (i = 1; i <= 5; i++) {
+        let sno = parseInt(prompt("Enter a S no."));
+        let roll = parseInt(prompt("Enter a Roll Number"));
+        let name = prompt("Enter a Student Name");
+        let math = parseInt(prompt("Enter a Math Marks"));
+        let hindi = parseInt(prompt("Enter a Hindi Marks"));
+        let english = parseInt(prompt("Enter a English Marks"));
+
+        let total = math + hindi + english;
+        let per = (total / 300) * 100;
+        let fixper = per.toFixed(2);
+
+        let grade = " ";
+        let result = " ";
+        if (per >= 90 && per <= 100) {
+          grade = "A+";
+          result = "Pass";
+        } else if (per >= 75 && per < 90) {
+          grade = "A";
+          result = "Pass";
+        } else if (per >= 60 && per < 75) {
+          grade = "B";
+          result = "Pass";
+        } else if (per >= 50 && per < 60) {
+          grade = "C";
+          result = "Pass";
+        } else if (per >= 33 && per < 50) {
+          grade = "D";
+          result = "Pass";
+        } else if (per >= 0 && per < 33) {
+          grade = "F";
+          result = "Fail";
+        } else {
+          document.write("invalid");
+        }
+
+        
+
+        if (fixper > highper) {
+          highper = fixper;
+        }
+
+         
+
+        if(fixper < minper) {
+           minper = fixper;
+        }
+
+         
+        if (fixper >= 33) {
+            pass++;
+        } else {
+            fail++;
+        }
+
+        document.write("<tr style='text-align: center;'>");
+        document.write("<td>" + sno + "</td>");
+        document.write("<td>" + roll + "</td>");
+        document.write("<td>" + name + "</td>");
+        document.write("<td>" + math + "</td>");
+        document.write("<td>" + hindi + "</td>");
+        document.write("<td>" + english + "</td>");
+        document.write("<td>" + total + "</td>");
+        document.write("<td>" + fixper + "</td>");
+        document.write("<td>" + grade + "</td>");
+        document.write("<td>" + result + "</td>");
+        document.write("</tr>");
+      }
+
+      document.write("<tr style='text-align: right;'>");
+      document.write("<th colspan='7'> Max Percentage</th>");
+      document.write("<th colspan='3' style='text-align: center;'>" + highper + "</th>");
+      document.write("</tr>");
+      document.write("<tr style='text-align: right;'>");
+      document.write("<th colspan='7'> Min. Percentage</th>");
+      document.write("<th colspan='3' style='text-align: center;'>"+ minper +"</th>");
+      document.write("</tr>");
+      document.write("<tr style='text-align: right;'>");
+      document.write("<th colspan='7'> Total Pass Student </th>");
+      document.write("<th colspan='3' style='text-align: center;'>"+ pass +"</th>");
+      document.write("</tr>");
+      document.write("<tr style='text-align: right;'>");
+      document.write("<th colspan='7'> Total Fail Student</th>");
+      document.write("<th colspan='3' style='text-align: center;'>"+ fail +"</th>");
+      document.write("</tr>");
+
+      
+
+      document.write("</table>");
+    </script>
+  </body>
+</html>
